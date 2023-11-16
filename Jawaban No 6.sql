@@ -1,7 +1,11 @@
 SELECT
+	*, 
 	mahasiswa.Nama_Mahasiswa, 
+	informasi_perkuliahan.informasi_mhs, 
 	matakuliah.Mata_Kuliah, 
-	dosen.Nama_Dosen
+	informasi_perkuliahan.informasi_mtkuliah, 
+	dosen.Nama_Dosen, 
+	dosen.Nim_Dosen
 FROM
 	mahasiswa
 	INNER JOIN
