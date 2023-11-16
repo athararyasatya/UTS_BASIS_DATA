@@ -1,13 +1,18 @@
 SELECT
-  m.Id AS Mahasiswa_ID,
-  m.Nama_Mahasiswa,
-  m.Nim_Mahasiswa,
-  m.fakultas,
-  mk.Id AS Matakuliah_ID,
-  mk.Mata_Kuliah,
-  mk.Kode_Mata_Kuliah,
-  mk.pengajar
+	mahasiswa.Nama_Mahasiswa, 
+	mahasiswa.Nim_Mahasiswa, 
+	mahasiswa.fakultas, 
+	mahasiswa.prodi, 
+	matakuliah.Mata_Kuliah, 
+	matakuliah.Kode_Mata_Kuliah, 
+	matakuliah.pengajar
 FROM
-  mahasiswa m
-JOIN
-  matakuliah mk ON m.Id = mk.Id;
+	mahasiswa
+	INNER JOIN
+	informasi_perkuliahan
+	ON 
+		mahasiswa.Id = informasi_perkuliahan.informasi_mhs
+	INNER JOIN
+	matakuliah
+	ON 
+		informasi_perkuliahan.informasi_mtkuliah = matakuliah.Id
