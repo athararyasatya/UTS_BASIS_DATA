@@ -1,13 +1,16 @@
 SELECT
-  d.Id AS Dosen_ID,
-  d.Nama_Dosen,
-  d.Nim_Dosen,
-  d.pendidikan,
-  mk.Id AS Matakuliah_ID,
-  mk.Mata_Kuliah,
-  mk.Kode_Mata_Kuliah,
-  mk.pengajar
+	dosen.Nama_Dosen, 
+	dosen.Nim_Dosen, 
+	dosen.pendidikan, 
+	matakuliah.Mata_Kuliah, 
+	matakuliah.Kode_Mata_Kuliah
 FROM
-  dosen d
-JOIN
-  matakuliah mk ON d.Id = mk.Id;
+	informasi_perkuliahan
+	INNER JOIN
+	matakuliah
+	ON 
+		informasi_perkuliahan.informasi_mtkuliah = matakuliah.Id
+	INNER JOIN
+	dosen
+	ON 
+		dosen.Nama_Dosen = matakuliah.pengajar
